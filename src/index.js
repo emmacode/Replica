@@ -1,13 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { QueryClientProvider, QueryClient } from 'react-query';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const reactQueryConfig = {
+  refetchOnWindowFocus: false,
+  retry: false
+}
+
+const defaultOptions = {
+  queries: reactQueryConfig,
+  mutations: reactQueryConfig
+}
+
+const queryClient = new QueryClient({ defaultOptions })
+
 root.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
