@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom"
 
 import { usePostData } from "../../Hooks/usePostsHook"
-import { PostBody } from "../PostBody/PostBody";
+import { Post } from "../../components/Post/Post";
+import { Header } from "../../components/Header";
 
 export const PostDetails = () => {
     const { postId } = useParams()
@@ -19,12 +20,15 @@ export const PostDetails = () => {
 
     return (
         <>
-            <div>
-                <div className="blogPost" key={data?.data.id}>
-                    <PostBody
-                        title={data?.data.title}
-                        body={data?.data.body}
-                    />
+            <div className="row">
+                <Header />
+                <div className="main">
+                    <div className="blogPost" key={data?.data.id}>
+                        <Post
+                            title={data?.data.title}
+                            body={data?.data.body}
+                        />
+                    </div>
                 </div>
             </div>
         </>

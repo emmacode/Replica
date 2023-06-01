@@ -19,7 +19,7 @@ const addPostData = (post) => {
     return request({ url: `/posts`, method: 'post', data: post })
 }
 
-export const usePostInfiniteData = () => {
+export const usePostInfiniteData = (onError) => {
     return useInfiniteQuery(
         ['posts-infinite'],
         fetchPostInfiniteData,
@@ -30,7 +30,8 @@ export const usePostInfiniteData = () => {
                 } else {
                     return undefined
                 }
-            }
+            },
+            onError: onError
         }
     )
 }
@@ -42,7 +43,9 @@ export const usePostsData = () => {
     )
 }
 
-export const useAddPostData = () => {
+export const useAddPostData = (
+    //onAddPostSuccess
+) => {
     const queryClient = useQueryClient();
     return useMutation(addPostData,
         {
@@ -80,7 +83,8 @@ export const useAddPostData = () => {
             },
             onSettled: () => {
                 queryClient.invalidateQueries('posts-infinite')
-            }
+            },
+            //onSuccess: onAddPostSuccess
         }
     )
 }
