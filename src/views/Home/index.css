@@ -14,10 +14,9 @@
 .postTitle {
   background-color: transparent;
   width: -webkit-fill-available;
-  height: 30px;
   border: none;
   border-bottom: 1px solid #b8a9a98f;
-  padding: 5px 20px;
+  padding: 20px;
   outline: none;
   color: #ffffff;
 }
@@ -28,7 +27,6 @@
   background: transparent;
   width: -webkit-fill-available;
   padding: 30px 20px;
-  height: 50px;
   resize: none;
   outline: none;
   border: none;

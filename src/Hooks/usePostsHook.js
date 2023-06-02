@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient } from "react-query";
-//import axios from "axios"
+
 import { request } from "../utils/axiosUtils";
 
 const fetchPostData = ({ queryKey }) => {

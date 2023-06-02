@@ -1,22 +1,24 @@
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from "react-query";
-//import axios from "axios"
+
 import { request } from "../utils/axiosUtils";
 
-// This caters for the post fetch in the home page
-const fetchPostInfiniteData = (pageParam = 1) => {
-    // this will help limit the fetch to 5 post at a time
-    //return axios.get(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${pageParam}`)
-    return request({ url: `/posts?_limit=5&_page=${pageParam}` })
-}
-
-// This is for individual post
+// Fetch all post data
 const fetchPostsData = () => {
     return request({ url: `/posts` })
 }
 
-// For Post
-const addPostData = (post) => {
-    return request({ url: `/posts`, method: 'post', data: post })
+export const usePostsData = () => {
+    return useQuery(
+        'posts',
+        fetchPostsData
+    )
+}
+
+
+
+// This caters for the post fetch in the home page
+const fetchPostInfiniteData = (pageParam = 1) => {
+    return request({ url: `/posts?_limit=5&_page=${pageParam}` })
 }
 
 export const usePostInfiniteData = (onError) => {
@@ -36,11 +38,11 @@ export const usePostInfiniteData = (onError) => {
     )
 }
 
-export const usePostsData = () => {
-    return useQuery(
-        'posts',
-        fetchPostsData
-    )
+
+
+// Adding new post
+const addPostData = (post) => {
+    return request({ url: `/posts`, method: 'post', data: post })
 }
 
 export const useAddPostData = (
@@ -54,10 +56,8 @@ export const useAddPostData = (
 
                 const previousPostData = queryClient.getQueryData('posts-infinite')
                 //console.log(previousPostData, 'previous')
-
                 queryClient.setQueryData('posts-infinite', (oldQueryData) => {
                     //console.log(oldQueryData?.pages, 'old')
-
                     oldQueryData?.pages.map((group, i) => {
                         //console.log(group, 'group')
                         return {

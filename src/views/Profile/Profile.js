@@ -13,10 +13,12 @@ export const Profile = () => {
                     <div className='profile'>
 
                         <div className='profileImg-edit'>
-                            <div>Profile image here</div>
+                            <div className='profile-image-container'>
+                                <input type='file' />
+                            </div>
                             <div>
-                                <Link>
-                                    <button className='editProfile'>Edit Profile</button>
+                                <Link to={'/settings/edit'}>
+                                    <button className='editProfileBtn'>Edit Profile</button>
                                 </Link>
                             </div>
                         </div>
@@ -28,6 +30,9 @@ export const Profile = () => {
 
                             <div className='username'>
                                 <span>@moyin</span>
+                            </div>
+                            <div className='bio'>
+                                <span>Software Engineer</span>
                             </div>
                         </div>
                     </div>
