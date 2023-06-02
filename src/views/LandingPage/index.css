@@ -36,3 +36,34 @@
     opacity: 1;
   }
 } */
+
+.login {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 16px 32px;
+  outline: none;
+  margin-right: 10px;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+
+.regBtn {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  background: #ffffff;
+  padding: 16px 32px;
+  border: 1px solid;
+  color: #000000;
+  outline: none;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}

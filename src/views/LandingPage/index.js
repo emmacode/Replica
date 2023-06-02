@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import "./index.css"
-import { Link } from 'react-router-dom'
 //import { Modal } from '../../components/Modal/modal'
-import { Form } from '../../components/Form/form'
 
 export const LandingPage = () => {
     //const [loginModal, setLoginModal] = useState(false);
