@@ -12,38 +12,7 @@
   margin-top: 50px;
 }
 
-.login {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 20px;
-  background: transparent;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  padding: 16px 32px;
-  outline: none;
-  margin-right: 10px;
-  border-bottom-left-radius: 9999px;
-  border-bottom-right-radius: 9999px;
-  border-top-left-radius: 9999px;
-  border-top-right-radius: 9999px;
-}
-
-.regBtn {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 20px;
-  background: #ffffff;
-  padding: 16px 32px;
-  border: 1px solid;
-  color: #000000;
-  outline: none;
-  border-bottom-left-radius: 9999px;
-  border-bottom-right-radius: 9999px;
-  border-top-left-radius: 9999px;
-  border-top-right-radius: 9999px;
-}
-
-.landingPage-form {
+/* .landingPage-form {
   position: relative;
   background-color: #000;
   margin: auto;
@@ -52,12 +21,12 @@
   border-radius: 16px;
   max-height: 90vh;
   min-width: 600px; /* previous value was 40%*/
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
-  animation-duration: 0.4s;
-}
+  animation-duration: 0.4s; */
+/* } */
 
-@keyframes animatetop {
+/* @keyframes animatetop {
   from {
     top: -300px;
     opacity: 0;
@@ -66,29 +35,4 @@
     top: 0;
     opacity: 1;
   }
-}
-
-.loginInput {
-  outline: none;
-  border: none;
-  padding: 8px;
-  width: 100%;
-}
-
-.loginBtn {
-  margin: 20px 0;
-  display: flex;
-  justify-content: center;
-}
-
-.loginBtn button {
-  outline: none;
-  padding: 16px 32px;
-  border-bottom-left-radius: 9999px;
-  border-bottom-right-radius: 9999px;
-  border-top-left-radius: 9999px;
-  border-top-right-radius: 9999px;
-  background: rgb(29, 155, 240);
-  border: none;
-  color: #fff;
-}
+} */

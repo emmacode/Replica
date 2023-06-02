@@ -1,0 +1,70 @@
+.field {
+  padding: 130px 20%;
+}
+
+.authField {
+  box-sizing: border-box;
+  box-shadow: 6px 6px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: 1px solid #f4f4f4;
+  border-top: 20px solid rgb(29, 155, 240);
+  max-width: 800px;
+  margin: auto;
+}
+
+.authIn {
+  padding: 50px;
+}
+
+.authHead {
+  font-size: 36px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.authInForm {
+  padding: 20px 70px;
+}
+
+.authInput {
+  background: #ffffff;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  color: #000;
+  padding: 20px 50px;
+  outline: none;
+}
+
+.form-field {
+  display: flex;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.remFor {
+  display: flex;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  justify-content: space-between;
+}
+
+.authBtn {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.authBtn a {
+  outline: none;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  background: rgb(29, 155, 240);
+  color: #fff;
+  border: none;
+  text-align: center;
+  width: 100%;
+  padding: 20px 57px;
+}

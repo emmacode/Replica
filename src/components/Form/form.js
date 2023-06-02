@@ -44,30 +44,28 @@ export const Form = (props) => {
         name,
         className,
         placeholder,
-        labelTitle,
+        //labelTitle,
         //disabled,
-        labelClass,
+        //labelClass,
         onChange
         //classNam
     } = props;
 
     return (
         <>
-            <div>
-                <label>
+            {/* <label>
                     <p className={labelClass}>{labelTitle}</p>
-                </label>
-                <input
-                    className={className}
-                    //onKeyUp={handleChange(onChange)}
-                    name={name}
-                    placeholder={placeholder}
-                    id={id}
-                    value={value}
-                    type={type}
-                    onChange={onChange}
-                />
-            </div>
+                </label> */}
+            <input
+                className={className}
+                //onKeyUp={handleChange(onChange)}
+                name={name}
+                placeholder={placeholder}
+                id={id}
+                value={value}
+                type={type}
+                onChange={onChange}
+            />
         </>
     )
 }
