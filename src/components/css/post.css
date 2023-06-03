@@ -1,0 +1,33 @@
+.closeDialog.MuiDialogActions-root {
+  justify-content: flex-start;
+  color: #fff;
+}
+
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  background-color: rgba(0, 0, 0, 1) !important;
+  color: #fff !important;
+}
+
+.css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop {
+  background-color: rgba(91, 112, 131, 0.4) !important;
+}
+
+.MuiButtonBase-root.replyBtn {
+  background: #1976d2;
+  color: #fff;
+  text-transform: lowercase;
+  text-align: center;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  padding: 8px 20px;
+}
+
+.MuiButtonBase-root.replyBtn:hover {
+  background: #1976d2;
+}
+
+.postText {
+  border: 1px solid #b8a9a98f;
+}

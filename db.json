@@ -30,11 +30,11 @@
       "comments": [
         {
           "commentId": 1,
-          "body": "Agbado is now the president of this country"
+          "CommentBody": "Agbado is now the president of this country"
         },
         {
           "commentId": 2,
-          "body": "They could not make a down payment for roasted corn"
+          "CommentBody": "They could not make a down payment for roasted corn"
         }
       ]
     },
@@ -45,17 +45,16 @@
       "comments": [
         {
           "commentId": 1,
-          "body": "The man is not serious, see Emefiele behind him. A whole CBN governor"
+          "CommentBody": "The man is not serious, see Emefiele behind him. A whole CBN governor"
         },
         {
           "commentId": 2,
-          "body": "He hold no political post. They have turned it to family business"
+          "CommentBody": "He hold no political post. They have turned it to family business"
         }
       ]
     },
     {
-      "title": "Meeting",
-      "body": "Had a long hour meeting with Gad where he explained POST, GET, PATCH, PUT AND DELETE. \n\nWe also had a discussion on how the logic of login and signup works",
+      "commentBody": "sss",
       "id": 3
     }
   ]

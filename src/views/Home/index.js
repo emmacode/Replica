@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useAddPostData, usePostInfiniteData } from '../../Hooks/useBigPostsHook';
 
 import "./index.css"
-import { Post } from '../../components/Post/Post';
+import { Post } from '../../components/Post';
 import { Header } from '../../components/Header';
 
 export const Home = () => {
