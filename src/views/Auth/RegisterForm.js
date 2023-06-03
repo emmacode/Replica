@@ -1,14 +1,28 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 import { Form } from '../../components/Form/form';
 
 import "./Auth.css"
-import { Link } from 'react-router-dom';
+import { useAddNewUser } from '../../Hooks/useAuthHooks';
 
 export const RegisterForm = () => {
+    const [username, setUsername] = useState('')
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [regPassword, setRegPassword] = useState('')
+    const [password, setPassword] = useState('')
+
+    const { mutate: addUser } = useAddNewUser()
+
+    const handleNewuser = (e) => {
+        e.preventDefault();
+        const newUser = { username, email, password, phone };
+        addUser(newUser);
+        setUsername('')
+        setEmail('');
+        setPhone('');
+        setPassword('');
+    }
 
     return (
         <>
@@ -22,7 +36,19 @@ export const RegisterForm = () => {
 
                         <div className='authInForm'>
 
-                            <form>
+                            <form onSubmit={handleNewuser}>
+                                <div className='form-field'>
+                                    <Form
+                                        className="authInput"
+                                        //name="login"
+                                        placeholder="Username"
+                                        value={username.toLowerCase()}
+                                        type='text'
+                                        onChange={(e) => setUsername(e.target.value)}
+                                        labelTitle="Email"
+                                    />
+                                </div>
+
                                 <div className='form-field'>
                                     <Form
                                         className="authInput"
@@ -52,17 +78,21 @@ export const RegisterForm = () => {
                                         className="authInput"
                                         //name="password"
                                         placeholder="password"
-                                        value={regPassword}
+                                        value={password}
                                         type="password"
                                         labelTitle="Password"
-                                        onChange={(e) => setRegPassword(e.target.value)}
+                                        onChange={(e) => setPassword(e.target.value)}
                                     />
                                 </div>
 
                                 <div className='authBtn'>
-                                    <Link className='pointer' to={'/home'}>Register</Link>
+                                    <button className='pointer'>Register</button>
                                 </div>
                             </form>
+
+                            <div>
+                                <Link to="/login">Login</Link>
+                            </div>
 
                         </div>
                     </div>

@@ -10,11 +10,11 @@ import { Header } from '../../components/Header';
 
 export const Home = () => {
     const [title, setTitle] = useState('');
-    const [text, setText] = useState('');
+    const [body, setBody] = useState('');
 
-    // const onAddPostSuccess = () => {
-    //     alert('new post has been added')
-    // }
+    const onAddPostSuccess = () => {
+        return alert('new post has been added')
+    }
 
     const onError = () => {
         return <h2>something went wrong</h2>
@@ -30,7 +30,7 @@ export const Home = () => {
     } = usePostInfiniteData(onError)
 
     const { mutate: addPost } = useAddPostData(
-        //onAddPostSuccess
+        onAddPostSuccess
     )
 
     const handleChange = setState => (e) => {
@@ -38,9 +38,11 @@ export const Home = () => {
     }
 
     const handleAddPostClick = () => {
-        console.log({ title, text })
-        const post = { title, text }
+        console.log({ title, body })
+        const post = { title, body }
         addPost(post)
+        setTitle('');
+        setBody('')
     }
 
     if (isLoading) {
@@ -68,9 +70,9 @@ export const Home = () => {
                             />
                             <textarea
                                 className="postText"
-                                value={text}
+                                value={body}
                                 placeholder="What is happening?!"
-                                onChange={handleChange(setText)}
+                                onChange={handleChange(setBody)}
                             />
                             <div className="postBtn">
                                 <button

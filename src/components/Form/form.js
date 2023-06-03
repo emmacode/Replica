@@ -62,9 +62,11 @@ export const Form = (props) => {
                 name={name}
                 placeholder={placeholder}
                 id={id}
+                autoComplete='off'
                 value={value}
                 type={type}
                 onChange={onChange}
+                required
             />
         </>
     )

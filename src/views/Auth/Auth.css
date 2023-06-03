@@ -55,7 +55,7 @@
   justify-content: center;
 }
 
-.authBtn a {
+.authBtn button {
   outline: none;
   border-bottom-left-radius: 9999px;
   border-bottom-right-radius: 9999px;
@@ -67,4 +67,12 @@
   text-align: center;
   width: 100%;
   padding: 20px 57px;
+}
+
+.errmsg {
+  color: red;
+}
+
+.offscreen {
+  display: none;
 }

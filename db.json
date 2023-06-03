@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "moyin5874",
+      "email": "strabie0@gmail.com",
+      "password": "Moyin123",
+      "phone": "+2349030310682"
+    },
+    {
+      "id": 2,
+      "username": "betty6547",
+      "email": "afolabimoyinoluwa4@gmail.com",
+      "password": "Betty123",
+      "phone": "+2349060242202"
+    },
+    {
+      "username": "mummy",
+      "email": "mummy@gmail.com",
+      "password": "Mummy123",
+      "phone": "08137568011",
+      "id": 3
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "President Bola Tinubu",
+      "body": "Bola Tinubu becomes the president of Nigeria",
+      "comments": [
+        {
+          "commentId": 1,
+          "body": "Agbado is now the president of this country"
+        },
+        {
+          "commentId": 2,
+          "body": "They could not make a down payment for roasted corn"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Dele Alake CBN speech",
+      "body": "Dele Alake giving speech about the naira to dollar situation",
+      "comments": [
+        {
+          "commentId": 1,
+          "body": "The man is not serious, see Emefiele behind him. A whole CBN governor"
+        },
+        {
+          "commentId": 2,
+          "body": "He hold no political post. They have turned it to family business"
+        }
+      ]
+    },
+    {
+      "title": "Meeting",
+      "body": "Had a long hour meeting with Gad where he explained POST, GET, PATCH, PUT AND DELETE. \n\nWe also had a discussion on how the logic of login and signup works",
+      "id": 3
+    }
+  ]
+}

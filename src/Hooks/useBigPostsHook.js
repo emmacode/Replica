@@ -46,7 +46,7 @@ const addPostData = (post) => {
 }
 
 export const useAddPostData = (
-    //onAddPostSuccess
+    onAddPostSuccess
 ) => {
     const queryClient = useQueryClient();
     return useMutation(addPostData,
@@ -66,7 +66,6 @@ export const useAddPostData = (
                                 ...group.data,
                                 {
                                     id: group?.data?.length + 1,
-                                    userId: group?.data?.length + 1,
                                     ...newPost
                                 }
                             ]
@@ -84,7 +83,7 @@ export const useAddPostData = (
             onSettled: () => {
                 queryClient.invalidateQueries('posts-infinite')
             },
-            //onSuccess: onAddPostSuccess
+            onSuccess: onAddPostSuccess
         }
     )
 }
