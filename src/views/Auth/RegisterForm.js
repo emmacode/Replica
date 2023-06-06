@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import Dialog from '@mui/material/Dialog';
+import { DialogActions } from '@mui/material';
+import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
@@ -62,11 +65,13 @@ export const RegisterForm = (props) => {
 
     return (
         <>
-            <Dialog open={props.signupModal} onClose={props.handleSignupClose}>
+            <Dialog open={props.signupModal}>
                 <div className='field'>
                     <div className='authField'>
+                        <DialogActions>
+                            <Button onClick={props.handleSignupClose} sx={{ color: "#fff" }}><CloseIcon /></Button>
+                        </DialogActions>
                         <div className='p-12'>
-
                             <div className='authHead'>
                                 <h1>-SIGN UP-</h1>
                             </div>

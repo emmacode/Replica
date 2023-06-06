@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
+import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
+import { DialogActions } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import { useFormik } from "formik"
 import * as Yup from "yup"
 
@@ -49,15 +52,17 @@ export const LoginForm = (props) => {
 
     return (
         <>
-            <Dialog open={props.loginModal} onClose={props.handleLoginClose}>
+            <Dialog open={props.loginModal}>
                 {
                     success ? (<Navigate to="/home" replace={true} />)
                         :
                         (
                             <div className='field'>
                                 <div className='authField'>
+                                    <DialogActions>
+                                        <Button onClick={props.handleLoginClose} sx={{ color: '#fff' }}><CloseIcon /></Button>
+                                    </DialogActions>
                                     <div className='p-12'>
-
                                         <div className='authHead'>
                                             <h1>-LOGIN-</h1>
                                         </div>
