@@ -1,73 +1,46 @@
 import React from 'react'
+import { useField } from 'formik'
 
-export const Form = (props) => {
-    //const [error, setError] = useState('')
-
-    // const handleChange = setState => (e) => {
-    //     e.preventDefault();
-    //     setState(e.target.value)
-
-    //     let error = null;
-    //     let valid;
-    //     let regex;
-    //     const { type, value, onChange, passed } = props;
-    //     if (type === 'email') {
-    //         regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    //         valid = regex.test(value);
-    //         error = 'Please enter a valid email.';
-    //     } else if (type === 'password') {
-    //         regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-    //         valid = regex.test(value);
-    //         error =
-    //             'Please enter at least a number, a capital letter, and a minimum of 8 characters.';
-    //     } else if (type === 'confirm-password') {
-    //         valid = passed;
-    //         error = 'Please confirm your password.';
-    //     }
-    //     // else if (type === "tel") {
-    //     //   // We need `class-validator` npm library
-    //     // } else if (type === "text") {
-    //     // }
-
-    //     if (!valid) {
-    //         setError({ error });
-    //     } else {
-    //         error = '';
-    //         setError({ error: '' });
-    //     }
-    // }
-
-    const {
-        id,
-        type,
-        value,
-        name,
-        className,
-        placeholder,
-        //labelTitle,
-        //disabled,
-        //labelClass,
-        onChange
-        //classNam
-    } = props;
-
+export const TextInput = (props) => {
     return (
         <>
-            {/* <label>
-                    <p className={labelClass}>{labelTitle}</p>
-                </label> */}
+            <label htmlFor={props.name}>{props.label}</label>
             <input
-                className={className}
-                //onKeyUp={handleChange(onChange)}
-                name={name}
-                placeholder={placeholder}
-                id={id}
-                autoComplete='off'
-                value={value}
-                type={type}
-                onChange={onChange}
-                required
+                type={props.type}
+                name={props.name}
+                value={props.value}
+                className={props.textClass}
+                onChange={props.onChange}
+                onBlur={props.handleBlur}
+                placeholder={props.placeholder}
             />
         </>
+    )
+}
+
+export const CheckBox = ({ children, ...props }) => {
+    return (
+        <div>
+            <label className='checkbox-input'>
+                <input
+                    name={props.name}
+                    type={props.type} />
+                {children}
+            </label>
+        </div>
+    )
+}
+
+export const Select = ({ label, ...props }) => {
+    const [field, meta] = useField(props);
+    return (
+        <div>
+            <label htmlFor={props.id || props.name}>{label}</label>
+            <select {...field} {...props} />
+            {meta.touched && meta.error ?
+                <div className='error'>{meta.error}</div>
+                : null
+            }
+        </div>
     )
 }

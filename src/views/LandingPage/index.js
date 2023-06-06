@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import "./index.css"
 import { LoginForm } from '../Auth/LoginForm'
 import { RegisterForm } from '../Auth/RegisterForm'
-//import { Modal } from '../../components/Modal/modal'
 
 export const LandingPage = () => {
     const [loginModal, setLoginModal] = React.useState(false);
@@ -27,21 +26,6 @@ export const LandingPage = () => {
                         <RegisterForm signupModal={signupModal} handleSignupClose={handleSignupClose} />
                     </div>
                 </div>
-                {/* Modal for Login */}
-                {/* <Modal
-                    className={loginModal ? 'modal modalOpen' : 'modal'}
-                    modalContentClass="landingPage-form"
-                    handleClose={handleLoginModal}
-                ></Modal> */}
-                {/* End Login modal */}
-
-                {/* Register modal form */}
-                {/* <Modal
-                    className={regModal ? 'modal modalOpen' : 'modal'}
-                    modalContentClass="landingPage-form"
-                    handleClose={handleRegModal}
-                ></Modal> */}
-                {/* End Register modal form */}
             </div>
         </>
     )

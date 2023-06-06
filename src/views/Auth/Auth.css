@@ -12,18 +12,10 @@
   margin: auto;
 }
 
-.authIn {
-  padding: 50px;
-}
-
 .authHead {
   font-size: 36px;
   color: #ffffff;
   text-align: center;
-}
-
-.authInForm {
-  padding: 20px 70px;
 }
 
 .authInput {
@@ -38,6 +30,7 @@
 
 .form-field {
   display: flex;
+  flex-direction: column;
   width: 100%;
   margin-top: 25px;
 }
@@ -69,8 +62,8 @@
   padding: 20px 57px;
 }
 
-.errmsg {
-  color: red;
+.error {
+  color: #a14343;
 }
 
 .offscreen {
