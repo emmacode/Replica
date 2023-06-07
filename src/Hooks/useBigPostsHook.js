@@ -114,9 +114,9 @@ export const useAddPostComment = () => {
                 const previousCommentData = queryClient.getQueryData('posts-infinite')
                 queryClient.setQueryData('posts-infinite', (oldQueryData) => {
                     oldQueryData?.pages.map((group) => {
-                        console.log(group, 'groupppppp')
-                        group?.data.map((postComments) => {
-                            console.log(postComments, 'post comments')
+                        //console.log(group, 'groupppppp')
+                        return group?.data.map((postComments) => {
+                            //console.log(postComments, 'post comments')
                             return {
                                 ...postComments,
                                 data: [

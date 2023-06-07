@@ -25,7 +25,7 @@ export const EditProfile = (props) => {
                         <h1>Edit Profile</h1>
                         <form className='editSpaceTop'>
                             <div className='editImage'>
-                                <div className='editSpaceRight'><img src={anonImg} alt="profile image" /></div>
+                                <div className='editSpaceRight'><img src={anonImg} alt="profile" /></div>
                                 <div>
                                     <input
                                         type='file'
