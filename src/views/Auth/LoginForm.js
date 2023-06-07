@@ -30,10 +30,11 @@ export const LoginForm = (props) => {
             password: ''
         },
         validationSchema: loginSchema,
-        onSubmit: (values) => {
+        onSubmit: (values, { resetForm }) => {
             const user = users?.data.find((user) => user.username === values.username && user.password === values.password)
             user && setSuccess(!success)
             user && console.log('User logged in')
+            resetForm({ values: '' })
         }
     })
 
