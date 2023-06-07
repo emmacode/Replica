@@ -1,24 +1,33 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
 import Dialog from '@mui/material/Dialog';
 import { DialogActions } from '@mui/material';
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
+
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
 import { TextInput } from '../../components/form';
 
 import "./Auth.css"
-import { useAddNewUser } from '../../Hooks/useAuthHooks';
+import { useAddNewUser, useUserInfo } from '../../Hooks/useAuthHooks';
+import { AlertBox } from '../../components/Alert';
 
 export const RegisterForm = (props) => {
+    const [usernameError, setUsernameError] = useState('')
+    const [emailError, setEmailError] = useState('')
+    const [alertMsg, setAlertMsg] = useState(false);
+
+    //get existing user data
+    const { data: users } = useUserInfo()
+    //console.log(users?.data, 'user')
 
     const { mutate: addUser } = useAddNewUser()
 
     // min 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit.
     const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
-    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+    //const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+    const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
 
     const registerSchema = Yup.object({
         username: Yup.string()
@@ -30,11 +39,12 @@ export const RegisterForm = (props) => {
             .matches(phoneRegExp, 'phone number is not valid')
             .required('phone number is required'),
         password: Yup.string()
-            .matches(passwordRules, 'Please create a stronger password')
+            .min(8, 'should be 8 characters minimum')
+            .matches(passwordRules, 'At least 1 upper case, lower case and digit')
             .required('Enter password'),
         confirmPassword: Yup.string()
-            .oneOf([Yup.ref("password"), null], 'password must match')
-            .min(8, 'Password is too short - should be 8 characters minimum')
+            .oneOf([Yup.ref("password"), null], 'password do not match')
+            .min(8, 'should be 8 characters minimum')
             .required('Confirm password')
     })
 
@@ -47,12 +57,28 @@ export const RegisterForm = (props) => {
             confirmPassword: ''
         },
         validationSchema: registerSchema,
-        onSubmit: (values) => {
+        onSubmit: (values, { resetForm }) => {
             const { username, email, phone, password } = values;
             const newUser = { username, email, phone, password };
-            addUser(newUser);
+            const findUsernames = users?.data.find((findUsername) => findUsername.username === username);
+            const findEmails = users?.data.find((findEmail) => findEmail.email === email)
+            if (findUsernames) {
+                setUsernameError('Username taken')
+                console.log('username exist')
+            } else if (findEmails) {
+                setEmailError('Email exists')
+                console.log('email exist')
+            } else {
+                addUser(newUser)
+                console.log('Account created')
+            }
+            resetForm({ values: '' })
         }
     })
+
+    const handleAlertClose = () => {
+        setAlertMsg(false)
+    }
 
     const {
         values,
@@ -65,6 +91,11 @@ export const RegisterForm = (props) => {
 
     return (
         <>
+            {alertMsg &&
+                <AlertBox open={alertMsg} onClose={handleAlertClose}>
+                    Account created
+                </AlertBox>
+            }
             <Dialog open={props.signupModal}>
                 <div className='field'>
                     <div className='authField'>
@@ -86,11 +117,12 @@ export const RegisterForm = (props) => {
                                             placeholder="Username"
                                             type='text'
                                             label="Username"
-                                            value={values.username}
+                                            value={values.username.toLowerCase()}
                                             onBlur={handleBlur}
                                             onChange={handleChange}
                                         />
                                         {touched.username && errors.username ? <div className='error'>{errors.username}</div> : null}
+                                        <div className='error'>{usernameError}</div>
                                     </div>
 
                                     <div className='form-field'>
@@ -105,6 +137,7 @@ export const RegisterForm = (props) => {
                                             onChange={handleChange}
                                         />
                                         {touched.email && errors.email ? <div className='error'>{errors.email}</div> : null}
+                                        <div className='error'>{emailError}</div>
                                     </div>
 
                                     <div className='form-field'>
@@ -153,10 +186,6 @@ export const RegisterForm = (props) => {
                                         <button type="submit" className='pointer'>Register</button>
                                     </div>
                                 </form>
-
-                                <div>
-                                    <Link to="/login">Login</Link>
-                                </div>
 
                             </div>
                         </div>

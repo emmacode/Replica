@@ -113,10 +113,6 @@ export const LoginForm = (props) => {
                                                 </div>
                                             </form>
 
-                                            <div>
-                                                <Link to="/signup">Register</Link>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>

@@ -20,6 +20,13 @@
       "password": "Mummy123",
       "phone": "08137568011",
       "id": 3
+    },
+    {
+      "username": "becca",
+      "email": "becca@gmail.com",
+      "phone": "08133176089",
+      "password": "Becca123",
+      "id": 4
     }
   ],
   "posts": [
