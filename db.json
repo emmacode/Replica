@@ -1,32 +1,11 @@
 {
   "users": [
     {
-      "id": 1,
-      "username": "moyin5874",
-      "email": "strabie0@gmail.com",
-      "password": "Moyin123",
-      "phone": "+2349030310682"
-    },
-    {
-      "id": 2,
-      "username": "betty6547",
+      "username": "moyinoluwa",
       "email": "afolabimoyinoluwa4@gmail.com",
-      "password": "Betty123",
-      "phone": "+2349060242202"
-    },
-    {
-      "username": "mummy",
-      "email": "mummy@gmail.com",
-      "password": "Mummy123",
-      "phone": "08137568011",
-      "id": 3
-    },
-    {
-      "username": "becca",
-      "email": "becca@gmail.com",
-      "phone": "08133176089",
-      "password": "Becca123",
-      "id": 4
+      "phone": "09030310682",
+      "password": "Moyin123",
+      "id": 1
     }
   ],
   "posts": [

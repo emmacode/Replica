@@ -1,19 +1,23 @@
 import React, { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
+
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import { DialogActions } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { useFormik } from "formik"
+
 import * as Yup from "yup"
+import { useFormik } from "formik"
 
 import { useUserInfo } from '../../Hooks/useAuthHooks'
+import { AlertBox } from '../../components/Alert';
 import { CheckBox, TextInput } from '../../components/form'
 
 import "./Auth.css"
 
 export const LoginForm = (props) => {
     const [success, setSuccess] = useState(false);
+    const [alertMsg, setAlertMsg] = useState(false);
 
     const { data: users, isError, error } = useUserInfo()
 
@@ -33,13 +37,17 @@ export const LoginForm = (props) => {
         onSubmit: (values, { resetForm }) => {
             const user = users?.data.find((user) => user.username === values.username && user.password === values.password)
             user && setSuccess(!success)
-            user && console.log('User logged in')
+            user && setAlertMsg(true)
             resetForm({ values: '' })
         }
     })
 
     if (isError) {
         return <h2>{error.message}</h2>
+    }
+
+    const handleAlertClose = () => {
+        setAlertMsg(false)
     }
 
     const {
@@ -53,6 +61,9 @@ export const LoginForm = (props) => {
 
     return (
         <>
+            <AlertBox open={alertMsg} onClose={handleAlertClose}>
+                Login Successful
+            </AlertBox>
             <Dialog open={props.loginModal}>
                 {
                     success ? (<Navigate to="/home" replace={true} />)

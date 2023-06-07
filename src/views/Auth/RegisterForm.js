@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
+
 import Dialog from '@mui/material/Dialog';
 import { DialogActions } from '@mui/material';
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 
-import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { useFormik } from 'formik'
 
 import { TextInput } from '../../components/form';
-
-import "./Auth.css"
-import { useAddNewUser, useUserInfo } from '../../Hooks/useAuthHooks';
 import { AlertBox } from '../../components/Alert';
+
+import { useAddNewUser, useUserInfo } from '../../Hooks/useAuthHooks';
+import "./Auth.css"
 
 export const RegisterForm = (props) => {
     const [usernameError, setUsernameError] = useState('')
@@ -64,15 +65,13 @@ export const RegisterForm = (props) => {
             const findEmails = users?.data.find((findEmail) => findEmail.email === email)
             if (findUsernames) {
                 setUsernameError('Username taken')
-                console.log('username exist')
             } else if (findEmails) {
                 setEmailError('Email exists')
-                console.log('email exist')
             } else {
                 addUser(newUser)
-                console.log('Account created')
+                setAlertMsg(true);
+                resetForm({ values: '' })
             }
-            resetForm({ values: '' })
         }
     })
 
@@ -91,11 +90,9 @@ export const RegisterForm = (props) => {
 
     return (
         <>
-            {alertMsg &&
-                <AlertBox open={alertMsg} onClose={handleAlertClose}>
-                    Account created
-                </AlertBox>
-            }
+            <AlertBox open={alertMsg} onClose={handleAlertClose}>
+                Account created
+            </AlertBox>
             <Dialog open={props.signupModal}>
                 <div className='field'>
                     <div className='authField'>

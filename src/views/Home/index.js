@@ -45,6 +45,7 @@ export const Home = () => {
         setBody('')
     }
 
+
     if (isLoading) {
         return <h2 style={{ textAlign: "center" }}>Loading...</h2>
     }
