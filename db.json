@@ -13,6 +13,20 @@
       "phone": "08133176089",
       "password": "Betty123",
       "id": 2
+    },
+    {
+      "username": "gad",
+      "email": "daveanifowoshe@koko.com",
+      "phone": "00000000000",
+      "password": "Password123@",
+      "id": 3
+    },
+    {
+      "username": "mamagad",
+      "email": "daveanifowoshe@mamagad.com",
+      "phone": "00000000000",
+      "password": "Password123@",
+      "id": 4
     }
   ],
   "posts": [

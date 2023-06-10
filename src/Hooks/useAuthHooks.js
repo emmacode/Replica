@@ -1,34 +1,18 @@
 import { useMutation, useQuery } from "react-query";
 
-import { request } from "../utils/axiosUtils";
+import { api } from "../api";
 
 // For registering new users
-const addNewUser = (newUser) => {
-    return request({ url: `/users`, method: 'post', data: newUser })
-}
-
 export const useAddNewUser = () => {
-    return useMutation(addNewUser)
-}
+  return useMutation((user) => api.auth.createUser(user));
+};
 
-
-
-// For getting existing users
-const getUserInfo = () => {
-    return request({ url: `/users` })
-}
-
+// For getting registered users
 export const useUserInfo = () => {
-    return useQuery('registered-users', getUserInfo)
-}
-
-
+  return useQuery("registered-users", () => api.auth.getUsers());
+};
 
 // For login
-const loginUser = (checkUser) => {
-    return request({ url: `/users`, method: 'post', data: checkUser })
-}
-
 export const useLoginUser = () => {
-    return useMutation(loginUser);
-}
+  return useMutation((user) => api.auth.login(user));
+};
